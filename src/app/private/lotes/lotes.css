@@ -1,0 +1,90 @@
+.lotes-container {
+  display: flex;
+  background: #f6f9fc;
+  min-height: 100vh;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* MAIN CONTENT */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+/* ==== Tarjetas principales ==== */
+.resume-card {
+  padding: 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: #f8f9ff;
+}
+
+/* ==== Estados generales de calidad ==== */
+.good {
+  background: #e0f8e9 !important;
+  color: #15803d;
+}
+
+.mid {
+  background: #e7f1ff !important;
+  color: #1d4ed8;
+}
+
+.bad {
+  background: #fff7db !important;
+  color: #b45309;
+}
+
+/* Tags de calidad  */
+.tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.tag.good {
+  background: #e0f8e9;
+  color: #15803d;
+}
+
+.tag.mid {
+  background: #e7f1ff;
+  color: #1d4ed8;
+}
+
+.tag.bad {
+  background: #fff2cf;
+  color: #b45309;
+}
+
+.dash-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ==== Estado logístico ==== */
+.state-active {
+  background: #e5f8ff;
+  color: #0284c7;
+}
+
+.state-transit {
+  background: #fef9c3;
+  color: #ca8a04;
+}
+
+.state-export {
+  background: #f1f5f9;
+  color: #475569;
+}

@@ -1,0 +1,147 @@
+<div class="dashboard-container">
+  <!-- SIDEBAR -->
+  <app-admin-sidebar></app-admin-sidebar>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="content">
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <button class="btn btn-light btn-sm" routerLink="/home">Ver sitio público</button>
+      <button class="btn btn-dark btn-sm" routerLink="/admin/login">Cerrar sesión</button>
+    </div>
+
+    <!-- TÍTULO -->
+    <h3 class="mb-1 fw-bold">Panel de Control</h3>
+    <p class="text-muted mb-4">Resumen general</p>
+
+    <!-- MÉTRICAS SUPERIORES -->
+    <div class="row mt-4 g-3">
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Ventas del Mes</h6>
+          <h2>$96,500</h2>
+          <span class="trend-up">+12,5% ↑</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Calificación Promedio</h6>
+          <h2>4.7/5</h2>
+          <span class="trend-up">+0.2 ↑</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Pedidos Pendientes</h6>
+          <h2>24</h2>
+          <span class="text-warning">2 urgentes</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card metric">
+          <h6>Clientes Activos</h6>
+          <h3>187</h3>
+          <span class="trend-up">+8 este mes ↑</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRÁFICAS -->
+    <div class="row mt-4 g-4">
+      <!-- LÍNEA -->
+      <div class="col-lg-8">
+        <div class="card p-3">
+          <h6 class="fw-bold">Ventas Mensuales</h6>
+          <canvas id="salesChart" height="120"></canvas>
+        </div>
+      </div>
+
+      <!-- PIE -->
+      <div class="col-lg-4">
+        <div class="card p-3 text-center">
+          <h6 class="fw-bold">Distribución por Canal</h6>
+          <canvas id="pieChart" height="180"></canvas>
+          <p class="small text-muted mt-2">Total de Ventas 2025</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4 g-4">
+      <!-- PEDIDOS RECIENTES -->
+      <div class="col-lg-6">
+        <div class="card p-3">
+          <h6 class="fw-bold">Pedidos Recientes</h6>
+
+          <ul class="list-group list-group-flush mt-2">
+            <li class="list-group-item d-flex justify-content-between">
+              ODR-123 · <span class="badge bg-primary">Empacado</span> <strong>$12,500</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              ODR-124 · <span class="badge bg-warning">En ruta</span> <strong>$11,800</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              ODR-125 · <span class="badge bg-success">Entregado</span> <strong>$8,900</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              ODR-126 · <span class="badge bg-danger">Retrasado</span> <strong>$10,300</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- INDICADORES -->
+      <div class="col-lg-6">
+        <div class="card p-3">
+          <h6 class="fw-bold">Métricas de Rendimiento</h6>
+
+          <p>Indicadores del mes actual</p>
+
+          <div class="mb-3">
+            <label>Compleción de Pedidos</label>
+            <div class="progress">
+              <div class="progress-bar bg-success" style="width: 90%"></div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label>Satisfacción del Cliente</label>
+            <div class="progress"><div class="progress-bar bg-info" style="width: 95%"></div></div>
+          </div>
+
+          <div class="mb-3">
+            <label>Calidad de Lotes</label>
+            <div class="progress">
+              <div class="progress-bar bg-primary" style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="container py-5">
+        <div class="row text-center g-4">
+          <div class="col-md-4">
+            <div class="p-4 border-0 rounded bg-white">
+              <h6 class="fw-bold">Ingresos del Año ↑</h6>
+              <p>$767,300</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-4 border-0 rounded bg-white">
+              <h6 class="fw-bold">Tasa de Retención</h6>
+              <p>89%</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-4 border-0 rounded bg-white">
+              <h6 class="fw-bold">Lotes Activos</h6>
+              <p>12</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

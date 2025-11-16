@@ -1,0 +1,145 @@
+<div class="sales-container">
+  <!-- SIDEBAR -->
+  <app-admin-sidebar></app-admin-sidebar>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="content">
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <button class="btn btn-light btn-sm" routerLink="/home">Ver sitio público</button>
+      <button class="btn btn-dark btn-sm" routerLink="/admin/login">Cerrar sesión</button>
+    </div>
+
+    <!-- TITULO -->
+
+    <h3 class="mb-1 fw-bold">Gestión de Ventas</h3>
+    <p class="text-muted mb-4">Registro y análisis de ventas por cliente y canal</p>
+
+    <!-- TARJETAS SUPERIORES -->
+    <div class="row mt-4 g-3">
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Total del Mes</h6>
+          <h2>$72,700</h2>
+          <p class="trend-up">▲ +14.5%</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Ventas B2C</h6>
+          <h2>$5,100</h2>
+          <p class="sub">7.0% del total</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Ventas B2B</h6>
+          <h2>$67,600</h2>
+          <p class="sub">93.0% del total</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Kilogramos Vendidos</h6>
+          <h2>929 kg</h2>
+          <p class="trend-up">▲ +12.8%</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRAFICA COMPARACIÓN -->
+    <div class="graph-card mt-4">
+      <h6>Comparación Mensual B2C vs B2B</h6>
+      <p class="text-muted small">Últimos 5 meses</p>
+
+      <div class="chart-placeholder">(Aquí va tu gráfica real con Chart.js u otro)</div>
+
+      <div class="legend mt-2">
+        <span class="b2b"></span> B2B <span class="b2c ms-3"></span> B2C
+      </div>
+    </div>
+
+    <!-- REGISTRO DE VENTAS -->
+    <div class="table-card mt-4">
+      <h6>Registro de Ventas – Octubre 2025</h6>
+      <p class="text-muted small">Lista detallada de todas las transacciones</p>
+
+      <!-- BUSCADOR -->
+      <input
+        type="text"
+        class="form-control search"
+        placeholder="🔍 Buscar por cliente..."
+        [(ngModel)]="searchClient"
+        (ngModelChange)="applyFilter()"
+      />
+
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Canal</th>
+            <th>Tipo</th>
+            <th>Cantidad (kg)</th>
+            <th>Monto</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let v of filteredVentas">
+            <td>{{ v.fecha }}</td>
+            <td>{{ v.cliente }}</td>
+            <td>{{ v.canal }}</td>
+            <td>
+              <span
+                class="tag"
+                [class.b2b-tag]="v.tipo === 'B2B'"
+                [class.b2c-tag]="v.tipo === 'B2C'"
+                >{{ v.tipo }}</span
+              >
+            </td>
+            <td>{{ v.cantidad }}</td>
+            <td>{{ v.monto }}</td>
+            <td>
+              <button class="icon-btn">✏️</button>
+              <button class="icon-btn text-danger">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section class="container py-5">
+        <div class="row text-center g-4">
+          <div class="col-md-3">
+            <div class="p-4 border-0 rounded bg-white">
+              <h6 class="fw-bold">Transacciones</h6>
+              <p>12</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-4 border-0 rounded bg-white">
+              <h6 class="fw-bold">Total kg</h6>
+              <p>929 kg</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-4 border-0 rounded bg-white">
+              <h6 class="fw-bold">Promedio/venta</h6>
+              <p>$6058</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-4 border-1 rounded bg-white">
+              <h6 class="fw-bold">Total</h6>
+              <p>$72.700</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

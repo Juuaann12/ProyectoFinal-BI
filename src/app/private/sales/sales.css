@@ -1,0 +1,103 @@
+.sales-container {
+  display: flex;
+  background: #f6f9fc;
+  min-height: 100vh;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* MAIN CONTENT */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+.sales-header h3 {
+  color: #1a1d26;
+}
+
+.trend-up {
+  color: #1ebe67; 
+  font-size: 0.9rem;
+}
+
+.dash-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.graph-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.chart-placeholder {
+  background: #eef3ff;
+  height: 260px;
+  border-radius: 10px;
+}
+
+.legend span {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.legend .b2b {
+  background: #6366f1;
+}
+
+.legend .b2c {
+  background: #93c5fd;
+}
+
+.table-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.search {
+  max-width: 350px;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.b2b-tag {
+  background: #dedbff;
+  color: #382be7;
+}
+
+.b2c-tag {
+  background: #d8ecff;
+  color: #097cf1;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.icon-btn:hover {
+  color: #3a57e8;
+}

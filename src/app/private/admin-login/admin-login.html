@@ -1,0 +1,66 @@
+<div class="admin-bg d-flex align-items-center justify-content-center min-vh-100">
+  <div class="admin-container">
+    <!-- Link para volver al público -->
+    <div class="back-link">
+      <a routerLink="/home">← Volver al sitio público</a>
+    </div>
+    <br />
+
+    <!-- Tarjeta de login -->
+    <div class="login-card shadow-sm">
+      <!-- Icono circular -->
+      <div class="icon-circle">
+        <!-- Lock SVG -->
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M12 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="#fff" />
+          <path
+            d="M17 8V7a5 5 0 00-10 0v1H5a1 1 0 00-1 1v9a1 1 0 001 1h14a1 1 0 001-1V9a1 1 0 00-1-1h-2zM8 7a4 4 0 018 0v1H8V7z"
+            fill="#fff"
+          />
+        </svg>
+      </div>
+
+      <h3 class="card-title">Panel de Administración</h3>
+      <p class="card-sub my-3">Ingresa tus credenciales para acceder al sistema</p>
+      <br />
+
+      <!-- Formulario -->
+      <form (ngSubmit)="submit()" #f="ngForm" class="login-form">
+        <label class="form-label">Correo electrónico</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="admin@arandanos.com"
+          required
+        />
+
+        <label class="form-label mt-3">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="********"
+          required
+        />
+
+        <div class="mt-3">
+          <button class="btn btn-primary w-100" type="button" (click)="submit()">
+            Iniciar sesión
+          </button>
+        </div>
+        <br />
+
+        <div *ngIf="error" class="alert alert-danger mt-3 small">{{ error }}</div>
+      </form>
+    </div>
+  </div>
+</div>

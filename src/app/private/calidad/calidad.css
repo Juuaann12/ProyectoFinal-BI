@@ -1,0 +1,139 @@
+.calidad-container {
+  display: flex;
+  background: #f6f9fc;
+  min-height: 100vh;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* MAIN CONTENT */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+.dash-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.trend-up {
+  color: #1ebe67; 
+  font-size: 0.9rem;
+}
+
+/* Reseñas recientes */
+.review-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eef0f5;
+}
+
+.review-item .avatar {
+  width: 45px;
+  height: 45px;
+  background: #dbeafe;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.review-item .content-area {
+  flex: 1;
+}
+
+.review-item .stars {
+  white-space: nowrap;
+  color: #ffd700;
+  font-size: 1.1rem;
+}
+
+/* Tags de severidad */
+.tag.good {
+  background: #e0f8e9;
+  color: #15803d;
+}
+
+.tag.mid {
+  background: #fff7cd;
+  color: #b45309;
+}
+
+.tag.bad {
+  background: #ffe4e6;
+  color: #b91c1c;
+}
+
+/* Tarjetas de resumen al final */
+.resume-card {
+  padding: 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.resume-card.good {
+  background: #dbfcef;
+  color: #15803d;
+}
+
+.resume-card.mid {
+  background: #fff9db;
+  color: #b45309;
+}
+
+.resume-card.bad {
+  background: #ffe4e6;
+  color: #b91c1c;
+}
+
+/* Gráficas  */
+.chart-placeholder {
+  background: #eef3ff;
+  height: 260px;
+  border-radius: 10px;
+}
+
+/* Tabla y tarjetas */
+.table-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.graph-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Inputs */
+.search {
+  max-width: 350px;
+}
+
+/* Iconos */
+.icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  color: #3b82f6;
+}

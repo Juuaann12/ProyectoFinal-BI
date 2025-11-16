@@ -1,0 +1,32 @@
+/*SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #e3e6ea;
+  min-height: 210vh;
+}
+
+.sidebar .brand {
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #3a57e8;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 8px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sidebar ul li.active,
+.sidebar ul li:hover {
+  background: #eef1ff;
+  color: #3a57e8;
+}

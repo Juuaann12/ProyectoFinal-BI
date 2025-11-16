@@ -1,0 +1,147 @@
+<div class="calidad-container">
+  <!-- SIDEBAR -->
+  <app-admin-sidebar></app-admin-sidebar>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="content">
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <button class="btn btn-light btn-sm" routerLink="/home">Ver sitio público</button>
+      <button class="btn btn-dark btn-sm" routerLink="/admin/login">Cerrar sesión</button>
+    </div>
+
+    <!-- TÍTULO -->
+    <h3 class="fw-bold mb-1">Indicadores de Calidad</h3>
+    <p class="text-muted mb-4">Seguimiento de reseñas y problemas de calidad</p>
+
+    <!-- TARJETAS SUPERIORES -->
+    <div class="row g-3">
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Calificación Promedio</h6>
+          <h2>{{ promedioCalificacion }}/5.0</h2>
+          <p class="trend-up">▲ +0.1 este mes</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Total de Reseñas</h6>
+          <h2>{{ totalResenas }}</h2>
+          <p class="trend-up">▲ +12 este mes</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Satisfacción</h6>
+          <h2>{{ satisfaccion }}%</h2>
+          <p class="trend-up">▲ +2.3%</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="dash-card">
+          <h6>Problemas Resueltos</h6>
+          <h2>{{ problemasResueltos }}</h2>
+          <p class="text-muted small">0 pendientes</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRAFICAS -->
+    <div class="row mt-4 g-3">
+      <div class="col-md-6">
+        <div class="graph-card">
+          <h6>Tendencia de Calificaciones</h6>
+          <p class="text-muted small">Evolución de la calificación promedio mensual</p>
+          <div class="chart-placeholder">(Gráfica aquí)</div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="graph-card">
+          <h6>Volumen de Reseñas</h6>
+          <p class="text-muted small">Cantidad de reseñas por mes</p>
+          <div class="chart-placeholder">(Gráfica aquí)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESEÑAS RECIENTES -->
+    <div class="table-card mt-4">
+      <h6>Reseñas Recientes</h6>
+      <p class="text-muted small">Últimas opiniones de clientes</p>
+
+      <div class="review-item" *ngFor="let r of resenas">
+        <div class="avatar">{{ r.usuario[0] }}</div>
+
+        <div class="content-area">
+          <strong>{{ r.usuario }}</strong> — <span class="text-muted">{{ r.lote }}</span>
+          <p class="text-muted small">{{ r.fecha }}</p>
+          <p>{{ r.comentario }}</p>
+        </div>
+
+        <div class="stars">
+          <span *ngFor="let s of [1, 2, 3, 4, 5]"> ⭐ </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEMAS DE CALIDAD -->
+    <div class="table-card mt-4">
+      <h6>Problemas de Calidad por Lote</h6>
+      <p class="text-muted small">Incidencias registradas y acciones correctivas</p>
+
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th>Lote</th>
+            <th>Problema</th>
+            <th>Severidad</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Acción Correctiva</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let p of problemas">
+            <td>{{ p.lote }}</td>
+            <td>{{ p.problema }}</td>
+
+            <td>
+              <span
+                class="tag"
+                [class.mid]="p.severidad === 'Media'"
+                [class.bad]="p.severidad === 'Alta'"
+                [class.good]="p.severidad === 'Baja'"
+              >
+                {{ p.severidad }}
+              </span>
+            </td>
+
+            <td>{{ p.fecha }}</td>
+            <td>{{ p.estado }}</td>
+            <td>{{ p.accion }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- RESUMEN -->
+      <div class="row text-center g-3 mt-4">
+        <div class="col-md-4">
+          <div class="resume-card good">280 Reseñas Positivas</div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="resume-card mid">25 Reseñas Neutrales</div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="resume-card bad">8 Reseñas Negativas</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

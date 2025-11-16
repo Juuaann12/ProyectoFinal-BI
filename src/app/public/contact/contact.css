@@ -1,0 +1,31 @@
+.contact-card {
+  border-radius: 15px;
+  transition: 0.2s;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+}
+
+.icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 1.8rem;
+}
+
+.bg-purple {
+  background: #a200ff;
+}
+
+.export-box {
+  border-radius: 15px;
+}
+
+.badge {
+  font-size: 0.9rem;
+}
