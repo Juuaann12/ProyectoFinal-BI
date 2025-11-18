@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2 shadow-sm">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#">LULU BARI</a>
+    <!-- LOGO -->
+    <a class="navbar-brand fw-bold fs-3 me-4" routerLink="/home">LULU BARI</a>
 
     <button
       class="navbar-toggler"
@@ -12,19 +13,32 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
+      <!-- MENÚ PRINCIPAL -->
+      <ul class="navbar-nav ms-2 me-auto">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/home">Inicio</a>
+          <a
+            class="nav-link px-3"
+            routerLink="/home"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Inicio
+          </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/reviews">Reseñas</a>
+          <a class="nav-link px-3" routerLink="/reviews" routerLinkActive="active"> Reseñas </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/contact">Contacto</a>
+          <a class="nav-link px-3" routerLink="/contact" routerLinkActive="active"> Contacto </a>
         </li>
       </ul>
 
-      <button class="btn btn-outline-light ms-3" routerLink="/admin/login">Login Empresa</button>
+      <!-- LOGIN -->
+      <button class="btn btn-outline-light d-flex align-items-center" routerLink="/admin/login">
+        <span class="me-2">🔒</span> Login Empresa
+      </button>
     </div>
   </div>
 </nav>

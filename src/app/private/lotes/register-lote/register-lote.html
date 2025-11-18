@@ -1,0 +1,113 @@
+<div class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Crear Nuevo Lote</h2>
+      <button class="close-btn" (click)="cerrar()">✕</button>
+    </div>
+
+    <p class="subtitle">Ingresa la información del nuevo lote de arándanos</p>
+
+    <form (ngSubmit)="registrarLote()">
+      <div class="row">
+        <div class="col">
+          <label>Origen *</label>
+          <input
+            type="text"
+            placeholder="Ej: Campo Norte - Sector A"
+            [(ngModel)]="loteData.origen"
+            name="origen"
+            required
+          />
+        </div>
+
+        <div class="col">
+          <label>Fecha de Cosecha *</label>
+          <input type="date" [(ngModel)]="loteData.fechaCosecha" name="fechaCosecha" required />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Cantidad (kg) *</label>
+          <input
+            type="number"
+            placeholder="Ej: 850"
+            [(ngModel)]="loteData.cantidad"
+            name="cantidad"
+            required
+          />
+        </div>
+
+        <div class="col">
+          <label>Calidad</label>
+          <select [(ngModel)]="loteData.calidad" name="calidad">
+            <option value="Excelente">Excelente</option>
+            <option value="Buena">Buena</option>
+            <option value="Regular">Regular</option>
+            <option value="Mala">Mala</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Temperatura</label>
+          <input
+            type="text"
+            placeholder="2-4°C"
+            [(ngModel)]="loteData.temperatura"
+            name="temperatura"
+          />
+        </div>
+
+        <div class="col">
+          <label>Humedad Relativa</label>
+          <input type="text" placeholder="85-90%" [(ngModel)]="loteData.humedad" name="humedad" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Fecha de Exportación *</label>
+          <input
+            type="date"
+            [(ngModel)]="loteData.fechaExportacion"
+            name="fechaExportacion"
+            required
+          />
+        </div>
+
+        <div class="col">
+          <label>Estado</label>
+          <select [(ngModel)]="loteData.estado" name="estado">
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+            <option value="Exportado">Exportado</option>
+            <option value="Caducado">Caducado</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Destino (opcional)</label>
+      <input
+        type="text"
+        placeholder="Ej: Distribuidora Norte"
+        [(ngModel)]="loteData.destino"
+        name="destino"
+      />
+
+      <label>Certificaciones</label>
+      <input
+        type="text"
+        placeholder="Separadas por comas (Ej: Orgánico USDA, Global GAP)"
+        [(ngModel)]="loteData.certificaciones"
+        name="certificaciones"
+      />
+
+      <div class="button-row">
+        <button type="button" class="cancel" (click)="cerrar()">Cancelar</button>
+        <button type="submit" class="save">Registrar Lote</button>
+      </div>
+    </form>
+  </div>
+</div>

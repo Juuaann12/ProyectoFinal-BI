@@ -1,0 +1,73 @@
+<div class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Registrar Nueva Venta</h2>
+      <button class="close-btn" (click)="cerrar()">✕</button>
+    </div>
+
+    <p class="subtitle">Ingresa los detalles de la venta</p>
+
+    <form (ngSubmit)="registrarVenta()">
+      <label>Fecha *</label>
+      <input type="date" [(ngModel)]="saleData.date" name="date" required />
+
+      <label>Cliente *</label>
+      <input
+        placeholder="Nombre del cliente"
+        [(ngModel)]="saleData.client"
+        name="client"
+        required
+      />
+
+      <div class="row">
+        <div class="col">
+          <label>Tipo *</label>
+          <select [(ngModel)]="saleData.type" name="type">
+            <option value="B2C">B2C</option>
+            <option value="B2B">B2B</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <label>Canal *</label>
+          <input
+            placeholder="Ej: B2C - Online"
+            [(ngModel)]="saleData.channel"
+            name="channel"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Cantidad (kg) *</label>
+          <input
+            type="number"
+            step="0.1"
+            placeholder="Ej: 10.5"
+            [(ngModel)]="saleData.quantity"
+            name="quantity"
+            required
+          />
+        </div>
+
+        <div class="col">
+          <label>Monto ($) *</label>
+          <input
+            type="number"
+            placeholder="Ej: 850"
+            [(ngModel)]="saleData.amount"
+            name="amount"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button type="button" class="cancel" (click)="cerrar()">Cancelar</button>
+        <button type="submit" class="save">Registrar Venta</button>
+      </div>
+    </form>
+  </div>
+</div>

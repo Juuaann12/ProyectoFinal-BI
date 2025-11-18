@@ -1,19 +1,26 @@
+<app-navbar></app-navbar>
 <div class="lotes-container">
   <!-- SIDEBAR -->
   <app-admin-sidebar></app-admin-sidebar>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="content">
-    <!-- TOPBAR -->
-    <div class="topbar">
-      <button class="btn btn-light btn-sm" routerLink="/home">Ver sitio público</button>
-      <button class="btn btn-dark btn-sm" routerLink="/admin/login">Cerrar sesión</button>
-    </div>
-
     <!-- TÍTULO -->
-    <h3 class="fw-bold mb-1">Control de Lotes</h3>
-    <p class="text-muted mb-4">Seguimiento de origen, calidad y conservación de lotes</p>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h3 class="fw-bold mb-1">Control de Lotes</h3>
+        <p class="text-muted mb-4">Seguimiento de origen, calidad y conservación de lotes</p>
+      </div>
 
+      <!-- Aquí se abre el modal -->
+      <app-register-lote *ngIf="showRegisterLote" (close)="closeRegisterLote()">
+      </app-register-lote>
+      <div class="topbar">
+        <button class="btn btn-dark mb-0" (click)="openRegisterLote()">
+          <i class="bi bi-plus-lg"></i> Nuevo Lote
+        </button>
+      </div>
+    </div>
     <!-- TARJETAS SUPERIORES -->
     <div class="row g-3">
       <div class="col-md-3">

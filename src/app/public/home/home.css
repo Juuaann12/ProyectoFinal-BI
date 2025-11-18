@@ -1,13 +1,25 @@
+/* ===================================================================
+   🟦 GLOBAL
+   Estilos generales para tipografías y contenedores
+=================================================================== */
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: #f8f9fc;
+  background-color: #ffffff;
 }
 
 .container {
   max-width: 1200px !important;
 }
 
-/* NAVBAR */
+
+
+/* ===================================================================
+   🟧 NAVBAR
+=================================================================== */
+.navbar {
+  background-color: #111 !important; /* Fondo negro elegante */
+}
+
 .navbar-brand {
   font-weight: 700;
   letter-spacing: 1px;
@@ -15,32 +27,74 @@ body {
 
 .navbar-nav .nav-link {
   font-weight: 600;
-  margin-left: 10px;
+  padding: 0 14px !important;
 }
 
-/* Botón login */
+.navbar-nav .nav-link:hover {
+  color: #d6e9ff !important; /* Azul claro al pasar */
+}
+
 .btn-outline-light {
   font-weight: 600;
   border-width: 2px;
+  padding: 6px 14px;
+  border-radius: 8px;
 }
 
-/* HERO SECTION */
+.btn-outline-light:hover {
+  background: #180d7c;
+  color: #000 !important;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  padding: 6px 16px !important;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link.active {
+  background: rgba(77, 192, 255, 0.15);
+  color: #4dc0ff !important;
+}
+
+/* ===================================================================
+   🟥 HERO SECTION (Ocupar toda la pantalla + imágenes laterales)
+=================================================================== */
 .hero-section {
   position: relative;
+  width: 100%;
+  height: 100vh; /* ← AHORA OCUPA TODA LA PANTALLA */
+  overflow: hidden;
+  background: linear-gradient(90deg, #030a11 50%, #021120 100%);
 }
 
-/* Fondo oscurecido */
-.hero-section::after {
-  content: "";
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 45, 80, 0.35);
-  z-index: 0;
+  background: rgba(1, 74, 177, 0.45);
+  z-index: 2;
 }
 
-.hero-section .container {
+.hero-image {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.65;
+}
+
+.left-image { left: 0; width: 50%; }
+.right-image { right: 0; width: 50%; }
+
+.hero-content {
   position: relative;
-  z-index: 10;
+  z-index: 3;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: white;
 }
 
 .hero-section h1 {
@@ -48,75 +102,187 @@ body {
   font-weight: 700;
 }
 
-.hero-section p {
-  font-size: 1.25rem;
+.hero-section .lead {
+  font-size: 1.3rem;
+  margin-top: 10px;
 }
 
-/* Botones hero */
-.hero-section .btn-success {
-  background-color: #17b85a;
+.hero-section .btn-primary {
+  background-color: #4da3ff;
   border: none;
+  font-weight: 600;
+  border-radius: 6px;
 }
 
-.hero-section .btn-outline-light:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+.hero-section .btn-primary:hover {
+  background-color: #1f7ce2;
 }
 
-/* TARJETAS DE PRODUCTOS */
-.card {
-  border-radius: 12px !important;
-}
 
-.card-img-top {
-  height: 240px;
-  object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
 
-.card-body h5 {
-  font-weight: 700;
-}
+/* ===================================================================
+   🟦 SECCIÓN PRODUCTOS — Títulos, textos y badges
+=================================================================== */
 
-.card-body ul {
-  padding-left: 18px;
-}
-
-.card-body ul li {
+/* Badge “Nuestra Línea de Productos” */
+.products-badge {
+  background: #328cd6;
+  color: #0c1481;
   font-size: 0.95rem;
-  margin-bottom: 3px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 5px;
+  display: inline-block;
 }
 
-/* Certificaciones */
-.badge {
+/* Título principal “Arándanos Premium…” */
+.products-title {
+  margin-top: 30px;
+  color: #1e3a8a;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Descripción corta debajo del título */
+.products-text {
+  margin-top: 25px;
+  color: #262627 !important;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/* ===================================================================
+   🟩 PRODUCT CARDS
+=================================================================== */
+.product-card {
+  margin-top: 50px;          /* Más espacio con la descripción */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(7, 24, 170, 0.08);
+  transition: all 0.3s ease;
+  border: 5px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+  height: 230px;
+  object-fit: cover;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #000000;
+  color: rgb(255, 255, 255);
+  padding: 5px 12px;
+  border-radius: 12px;
   font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.product-card .card-body { padding: 22px; }
+.product-card h5        { font-weight: 600; color:#090975 }
+.product-card p         { font-size: 0.92rem; color: #2d2f31; }
+.product-card ul        { padding-left: 18px; }
+.product-card ul li     { margin-bottom: 4px; font-size: 0.9rem; }
+.product-card h6        { margin: 14px 0 6px; font-weight: 600; color:#090975 }
+
+.cert-badge {
+  background: #eef2ff;
+  color: #1e3a8a;
   padding: 6px 10px;
   border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 6px;
 }
 
-/* SECCIÓN BENEFICIOS */
-.bg-light {
-  background-color: #f0f4fa !important;
+
+
+/* ===================================================================
+   🟪 BENEFICIOS (Why Section)
+=================================================================== */
+.benefit-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 250px;
 }
 
-.border {
-  border-color: #d3dce6 !important;
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
 }
 
-.p-4 h5 {
-  font-weight: 700;
+/* Icono circular */
+.benefit-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
-.p-4 p {
-  color: #546373;
+.benefit-icon i {
+  font-size: 32px;
+  color: white;
 }
 
-/* FOOTER */
+/* Título dentro de las tarjetas */
+.benefit-card h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #090975;
+  margin-top: 20px;
+}
+
+/* Texto de descripción */
+.benefit-card p {
+  font-size: 0.95rem;
+  color: #262627;
+  margin-top: 10px;
+}
+
+/* Títulos principales de la sección */
+.why-section h4 {
+  color: #090975;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.why-section h6 {
+  color: #262627;
+  font-size: 18px;
+}
+
+
+
+/* ===================================================================
+   🟫 FOOTER
+=================================================================== */
 footer {
-  background-color: #003f82;
+  background-color: #911d1d;
   color: #fff;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 40px 0;
 }
 
 footer h5 {
@@ -124,9 +290,7 @@ footer h5 {
   margin-bottom: 12px;
 }
 
-footer p {
-  margin-bottom: 6px;
-}
+footer p { margin-bottom: 6px; }
 
 footer .text-center {
   margin-top: 20px;
@@ -135,17 +299,17 @@ footer .text-center {
   font-size: 0.9rem;
 }
 
-/* RESPONSIVE */
+
+
+/* ===================================================================
+   🟩 RESPONSIVE
+=================================================================== */
 @media (max-width: 768px) {
-  .hero-section h1 {
-    font-size: 2.2rem;
-  }
+  .left-image,
+  .right-image { opacity: 0.4; }
 
-  .hero-section p {
-    font-size: 1rem;
-  }
+  .hero-section h1   { font-size: 2rem; }
+  .hero-section .lead { font-size: 1rem; }
 
-  .card-img-top {
-    height: 200px;
-  }
+  .product-card img { height: 200px; }
 }

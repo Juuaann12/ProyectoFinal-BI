@@ -1,147 +1,211 @@
+<app-navbar></app-navbar>
+
 <div class="dashboard-container">
   <!-- SIDEBAR -->
   <app-admin-sidebar></app-admin-sidebar>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- CONTENIDO -->
   <main class="content">
-    <!-- TOPBAR -->
-    <div class="topbar">
-      <button class="btn btn-light btn-sm" routerLink="/home">Ver sitio público</button>
-      <button class="btn btn-dark btn-sm" routerLink="/admin/login">Cerrar sesión</button>
-    </div>
-
     <!-- TÍTULO -->
-    <h3 class="mb-1 fw-bold">Panel de Control</h3>
-    <p class="text-muted mb-4">Resumen general</p>
+    <h4 class="fw-bold mb-1">Panel de Control</h4>
+    <p class="text-muted mb-4">Resumen general de tu negocio</p>
 
-    <!-- MÉTRICAS SUPERIORES -->
-    <div class="row mt-4 g-3">
+    <!-- MÉTRICAS TOP -->
+    <div class="row g-3">
+      <!-- Venta Mes -->
       <div class="col-md-3">
-        <div class="dash-card">
-          <h6>Ventas del Mes</h6>
-          <h2>$96,500</h2>
-          <span class="trend-up">+12,5% ↑</span>
+        <div class="dash-card metric-card">
+          <p class="metric-title">Ventas del Mes</p>
+          <h3 class="metric-value">$96,500</h3>
+          <span class="trend text-success">+12.5%</span>
         </div>
       </div>
 
+      <!-- Calificación -->
       <div class="col-md-3">
-        <div class="dash-card">
-          <h6>Calificación Promedio</h6>
-          <h2>4.7/5</h2>
-          <span class="trend-up">+0.2 ↑</span>
+        <div class="dash-card metric-card">
+          <p class="metric-title">Calificación Promedio</p>
+          <h3 class="metric-value">4.7/5.0</h3>
+          <span class="trend text-success">+0.2</span>
         </div>
       </div>
 
+      <!-- Pendientes -->
       <div class="col-md-3">
-        <div class="dash-card">
-          <h6>Pedidos Pendientes</h6>
-          <h2>24</h2>
-          <span class="text-warning">2 urgentes</span>
+        <div class="dash-card metric-card">
+          <p class="metric-title">Pedidos Pendientes</p>
+          <h3 class="metric-value">24</h3>
+          <span class="trend text-warning">2 urgentes</span>
         </div>
       </div>
 
+      <!-- Clientes -->
       <div class="col-md-3">
-        <div class="card metric">
-          <h6>Clientes Activos</h6>
-          <h3>187</h3>
-          <span class="trend-up">+8 este mes ↑</span>
+        <div class="dash-card metric-card">
+          <p class="metric-title">Clientes Activos</p>
+          <h3 class="metric-value">187</h3>
+          <span class="trend text-success">+8 este mes</span>
         </div>
       </div>
     </div>
 
-    <!-- GRÁFICAS -->
+    <!-- GRÁFICOS -->
     <div class="row mt-4 g-4">
-      <!-- LÍNEA -->
+      <!-- Línea -->
       <div class="col-lg-8">
-        <div class="card p-3">
-          <h6 class="fw-bold">Ventas Mensuales</h6>
-          <canvas id="salesChart" height="120"></canvas>
+        <div class="card chart-card p-4">
+          <h6 class="fw-bold mb-3">Ventas Mensuales</h6>
+          <canvas id="salesChart"></canvas>
         </div>
       </div>
 
-      <!-- PIE -->
+      <!-- Pie -->
       <div class="col-lg-4">
-        <div class="card p-3 text-center">
-          <h6 class="fw-bold">Distribución por Canal</h6>
+        <div class="card chart-card p-4 text-center">
+          <h6 class="fw-bold mb-3">Distribución por Canal</h6>
           <canvas id="pieChart" height="180"></canvas>
-          <p class="small text-muted mt-2">Total de Ventas 2025</p>
+          <p class="small text-muted mt-3">Total de ventas 2025</p>
         </div>
       </div>
     </div>
 
+    <!-- PARTE INFERIOR -->
     <div class="row mt-4 g-4">
       <!-- PEDIDOS RECIENTES -->
       <div class="col-lg-6">
-        <div class="card p-3">
-          <h6 class="fw-bold">Pedidos Recientes</h6>
+        <div class="card">
+          <div class="card-body">
+            <h6 class="fw-bold">Pedidos Recientes</h6>
+            <p class="text-muted small mb-3">Últimas 5 transacciones</p>
 
-          <ul class="list-group list-group-flush mt-2">
-            <li class="list-group-item d-flex justify-content-between">
-              ODR-123 · <span class="badge bg-primary">Empacado</span> <strong>$12,500</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              ODR-124 · <span class="badge bg-warning">En ruta</span> <strong>$11,800</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              ODR-125 · <span class="badge bg-success">Entregado</span> <strong>$8,900</strong>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              ODR-126 · <span class="badge bg-danger">Retrasado</span> <strong>$10,300</strong>
-            </li>
-          </ul>
+            <div class="orders-list">
+              <div class="order-item">
+                <div class="order-info">
+                  <span class="order-id">ORD-1234</span>
+                  <span class="order-status completed">Completado</span>
+                </div>
+                <div class="order-client">Restaurant El Jardín</div>
+                <div class="order-date">2025-11-03</div>
+              </div>
+
+              <div class="order-item">
+                <div class="order-info">
+                  <span class="order-id">ORD-1235</span>
+                  <span class="order-status progress">En proceso</span>
+                </div>
+                <div class="order-client">Distribuidora Norte</div>
+                <div class="order-date">2025-11-03</div>
+              </div>
+
+              <div class="order-item">
+                <div class="order-info">
+                  <span class="order-id">ORD-1236</span>
+                  <span class="order-status completed">Completado</span>
+                </div>
+                <div class="order-client">María González</div>
+                <div class="order-date">2025-11-02</div>
+              </div>
+
+              <div class="order-item">
+                <div class="order-info">
+                  <span class="order-id">ORD-1237</span>
+                  <span class="order-status pending">Pendiente</span>
+                </div>
+                <div class="order-client">Supermercado Fresh</div>
+                <div class="order-date">2025-11-02</div>
+              </div>
+
+              <div class="order-item">
+                <div class="order-info">
+                  <span class="order-id">ORD-1238</span>
+                  <span class="order-status completed">Completado</span>
+                </div>
+                <div class="order-client">Carlos Méndez</div>
+                <div class="order-date">2025-11-01</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- INDICADORES -->
+      <!-- MÉTRICAS DE RENDIMIENTO -->
       <div class="col-lg-6">
-        <div class="card p-3">
-          <h6 class="fw-bold">Métricas de Rendimiento</h6>
+        <div class="card">
+          <div class="card-body">
+            <h6 class="fw-bold">Métricas de Rendimiento</h6>
+            <p class="text-muted small mb-3">Indicadores clave del mes actual</p>
 
-          <p>Indicadores del mes actual</p>
+            <div class="metrics-grid">
+              <div class="metric-item">
+                <div class="metric-header">
+                  <span class="metric-name">Cumplimiento de Pedidos</span>
+                  <span class="metric-value">94%</span>
+                </div>
+                <div class="progress thin">
+                  <div class="progress-bar bg-success" style="width: 94%"></div>
+                </div>
+              </div>
 
-          <div class="mb-3">
-            <label>Compleción de Pedidos</label>
-            <div class="progress">
-              <div class="progress-bar bg-success" style="width: 90%"></div>
-            </div>
-          </div>
+              <div class="metric-item">
+                <div class="metric-header">
+                  <span class="metric-name">Satisfacción del Cliente</span>
+                  <span class="metric-value">98%</span>
+                </div>
+                <div class="progress thin">
+                  <div class="progress-bar bg-info" style="width: 98%"></div>
+                </div>
+              </div>
 
-          <div class="mb-3">
-            <label>Satisfacción del Cliente</label>
-            <div class="progress"><div class="progress-bar bg-info" style="width: 95%"></div></div>
-          </div>
+              <div class="metric-item">
+                <div class="metric-header">
+                  <span class="metric-name">Calidad de Lotes</span>
+                  <span class="metric-value">96%</span>
+                </div>
+                <div class="progress thin">
+                  <div class="progress-bar bg-primary" style="width: 96%"></div>
+                </div>
+              </div>
 
-          <div class="mb-3">
-            <label>Calidad de Lotes</label>
-            <div class="progress">
-              <div class="progress-bar bg-primary" style="width: 80%"></div>
+              <div class="stats-row">
+                <div class="stat-box">
+                  <div class="stat-value">342</div>
+                  <div class="stat-label">Pedidos Completados</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value">24</div>
+                  <div class="stat-label">En Proceso</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value">18</div>
+                  <div class="stat-label">Lotes Activos</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <section class="container py-5">
-        <div class="row text-center g-4">
-          <div class="col-md-4">
-            <div class="p-4 border-0 rounded bg-white">
-              <h6 class="fw-bold">Ingresos del Año ↑</h6>
-              <p>$767,300</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="p-4 border-0 rounded bg-white">
-              <h6 class="fw-bold">Tasa de Retención</h6>
-              <p>89%</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="p-4 border-0 rounded bg-white">
-              <h6 class="fw-bold">Lotes Activos</h6>
-              <p>12</p>
-            </div>
-          </div>
+    <!-- INDICADORES FINALES -->
+    <div class="row mt-4 g-3">
+      <div class="col-md-4">
+        <div class="final-metric">
+          <span class="final-label">Ingresos del Año</span>
+          <span class="final-value">$767,300</span>
         </div>
-      </section>
+      </div>
+      <div class="col-md-4">
+        <div class="final-metric">
+          <span class="final-label">Tasa de Retención</span>
+          <span class="final-value">89%</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="final-metric">
+          <span class="final-label">Lotes Activos</span>
+          <span class="final-value">12</span>
+        </div>
+      </div>
     </div>
   </main>
 </div>

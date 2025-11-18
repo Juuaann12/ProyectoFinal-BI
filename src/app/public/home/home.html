@@ -1,122 +1,171 @@
 <app-header></app-header>
-<!-- HERO -->
-<header
-  class="hero-section text-center text-white d-flex align-items-center"
-  style="background: url('/src/assets/images/home_card1.jpg') center/cover no-repeat; height: 450px"
->
-  <div class="container">
-    <span class="badge bg-light text-dark">De Nariño, Colombia a Dubái</span>
 
-    <h1 class="fw-bold display-5">El azul que conquista Dubái</h1>
+<!-- HERO -->
+<header class="hero-section">
+  <div class="hero-overlay"></div>
+
+  <!-- IMAGEN 1 -->
+  <img class="hero-image left-image" src="assets/images/home_left.jpg" />
+
+  <!-- IMAGEN 2 -->
+  <img class="hero-image right-image" src="assets/images/home_right.jpg" />
+
+  <div class="hero-content text-center text-white">
+    <span class="badge bg-success px-3 py-2">De Nariño para el Mundo</span>
+
+    <h1 class="fw-bold mt-3">El azul que conquista Dubái</h1>
 
     <p class="lead">Superalimento nariñense que conecta sabor, salud y sostenibilidad</p>
 
-    <div class="mt-4">
-      <button class="btn btn-success px-4 me-2">Explorar productos</button>
-      <button class="btn btn-outline-light px-4">Contactar</button>
-    </div>
+    <button class="btn btn-primary px-4 mt-3" (click)="scrollToProducts()">
+      Explorar productos
+    </button>
   </div>
 </header>
 
 <!-- ===== SECCIÓN PRODUCTOS ===== -->
-<section class="container py-5">
-  <div class="text-center mb-4">
-    <span class="badge bg-dark text-light">Nuestros Productos</span>
-    <br /><br />
-    <h3 class="fw-bold">Superalimento de las Montañas de Nariño</h3>
-    <p class="text-muted">
-      Arándanos deshidratados premium cultivados a gran altitud, procesados de forma natural y
-      certificados para los mercados más exigentes del mundo. Incluyendo Dubái y Medio Oriente.
+<section id="products" class="container py-5">
+  <div class="products-header text-center mb-4">
+    <span class="products-badge">Nuestra Línea de Productos</span>
+
+    <h3 class="products-title">Arándanos Premium de Exportación</h3>
+
+    <p class="products-text">
+      Tres productos diseñados específicamente para conquistar mercados internacionales
+      exigentes.<br />
+      De las montañas de Nariño-Colombia al mercado gourmet de Dubái y Emiratos Árabes Unidos.
     </p>
   </div>
+
   <div class="row g-4">
     <!-- CARD 1 -->
     <div class="col-md-4">
-      <div class="card shadow-sm border-2 h-100">
-        <img src="/src/assets/images/home_card1.jpg" class="card-img-top" alt="Producto 1" />
+      <div class="product-card">
+        <span class="product-badge">Export Premium</span>
+        <img src="assets/images/home_card1.jpg" alt="Deshidratados" />
+
         <div class="card-body">
-          <h5 class="fw-bold">Arándanos Deshidratados Premium</h5>
-          <p class="text-muted">Premium Export</p>
-          <p>Arándanos deshidratados de altitud, cultivados en Nariño a 2.600–3.200 msnm.</p>
-          <h6 class="fw-bold">Beneficios</h6>
+          <h5>Deshidratados Premium</h5>
+          <p>Arándanos deshidratados de Nariño con proceso patentado que preserva nutrientes.</p>
+
+          <h6>✅ Beneficios Clave</h6>
           <ul>
-            <li>Antioxidantes naturales concentrados</li>
-            <li>Energía natural prolongada</li>
-            <li>Sin conservantes químicos</li>
+            <li>Retención del 95% de antioxidantes naturales</li>
+            <li>Sin conservantes ni aditivos artificiales</li>
+            <li>Empaque hermético con vida útil de 18 meses</li>
+            <li>Ideal para exportación a mercados premium</li>
           </ul>
-          <h6 class="fw-bold">Certificaciones</h6>
-          <span class="badge bg-primary me-2">HACCP</span>
-          <span class="badge bg-primary me-2">ISO 22000</span>
+
+          <h6>🛡️ Certificaciones</h6>
+          <span class="cert-badge">Halal</span>
+          <span class="cert-badge">HACCP</span>
+          <span class="cert-badge">ISO 22000</span>
         </div>
       </div>
     </div>
+
     <!-- CARD 2 -->
     <div class="col-md-4">
-      <div class="card shadow-sm border-2 h-100">
-        <img src="https://i.imgur.com/W0j4QpQ.jpeg" class="card-img-top" alt="Producto 2" />
+      <div class="product-card">
+        <span class="product-badge">Organic Line</span>
+        <img src="assets/images/organico.jpg" alt="Orgánicos" />
+
         <div class="card-body">
-          <h5 class="fw-bold">Arándanos Orgánicos Nariño</h5>
-          <p class="text-muted">Orgánico</p>
-          <p>Cultivados orgánicamente con prácticas sostenibles y certificación internacional.</p>
-          <h6 class="fw-bold">Beneficios</h6>
+          <h5>Orgánicos Nariño</h5>
+          <p>Cultivados en montañas sin pesticidas. Certificación orgánica internacional.</p>
+
+          <h6>✅ Beneficios Clave</h6>
           <ul>
-            <li>100% orgánico certificado</li>
-            <li>Rastreabilidad completa</li>
+            <li>Cultivados a 2.500 msnm</li>
             <li>Cosecha manual selectiva</li>
+            <li>Rastreabilidad completa</li>
+            <li>Frescura garantizada del cultivo</li>
           </ul>
-          <h6 class="fw-bold">Certificaciones</h6>
-          <span class="badge bg-primary me-2">Orgánico</span>
-          <span class="badge bg-primary me-2">Fair Trade</span>
-          <span class="badge bg-primary me-2">HACCP</span>
+
+          <h6>🛡️ Certificaciones</h6>
+          <span class="cert-badge">Orgánico</span>
+          <span class="cert-badge">Fair Trade</span>
+          <span class="cert-badge">HACCP</span>
         </div>
       </div>
     </div>
+
     <!-- CARD 3 -->
     <div class="col-md-4">
-      <div class="card shadow-sm border-2 h-100">
-        <img src="https://i.imgur.com/0s9N2dG.jpeg" class="card-img-top" alt="Producto 3" />
+      <div class="product-card">
+        <span class="product-badge">Luxury Dubai</span>
+        <img src="assets/images/premium.jpg" alt="Gourmet Dubai" />
+
         <div class="card-body">
-          <h5 class="fw-bold">Arándanos Gourmet Dubái</h5>
-          <p class="text-muted">Expert Line</p>
-          <p>
-            Línea especial para mercados Halal. Deshidratados premium con certificaciones para Medio
-            Oriente.
-          </p>
-          <h6 class="fw-bold">Beneficios</h6>
+          <h5>Gourmet Dubái</h5>
+          <p>Superalimento premium certificado Halal. Diseñado para mercados del Medio Oriente.</p>
+
+          <h6>✅ Beneficios Clave</h6>
           <ul>
-            <li>Certificación Halal verificada</li>
-            <li>Sabor premium para exportación</li>
-            <li>Empaque premium atractivo</li>
+            <li>Certificación Halal avalada</li>
+            <li>Selección de frutos de calibre superior</li>
+            <li>Empaque premium para mercado árabe</li>
+            <li>Logística especializada para Dubái</li>
           </ul>
-          <h6 class="fw-bold">Certificaciones</h6>
-          <span class="badge bg-primary me-2">Halal</span>
-          <span class="badge bg-primary me-2">ISO 22000</span>
-          <span class="badge bg-primary me-2">BRC Food Safety</span>
+
+          <h6>🛡️ Certificaciones</h6>
+          <span class="cert-badge">Halal</span>
+          <span class="cert-badge">HACCP</span>
+          <span class="cert-badge">ISO 22000</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 <!-- ===== BENEFICIOS ===== -->
-<section class="container py-5">
-  <div class="row text-center g-4">
-    <div class="col-md-4">
-      <div class="p-4 border-0 rounded bg-light">
-        <h6 class="fw-bold">💚 100% Natural</h6>
-        <p>Cultivados sin pesticidas ni conservantes.</p>
+<section class="container py-5 why-section">
+  <h4 class="text-center fw-semibold mb-2">¿Por qué elegir LULU BARI?</h4>
+  <h6 class="text-center fw-semibold mb-5">
+    Somos el puente entre la calidad colombiana y la exigencia del mercado internacional
+  </h6>
+
+  <div class="row g-4 justify-content-center">
+    <!-- CARD 1 -->
+    <div class="col-md-3">
+      <div class="benefit-card text-center p-4">
+        <div class="benefit-icon" style="background-color: #36c784">
+          <i class="bi bi-tree-fill"></i>
+        </div>
+        <h5 class="fw-semibold mt-3">100% Natural</h5>
+        <p>Sin conservantes artificiales, cultivados con prácticas sostenibles.</p>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="p-4 border-0 rounded bg-light">
-        <h6 class="fw-bold">Certificación Halal</h6>
-        <p>Aptos para mercados de Medio Oriente.</p>
-        <br />
+
+    <!-- CARD 2 -->
+    <div class="col-md-3">
+      <div class="benefit-card text-center p-4">
+        <div class="benefit-icon" style="background-color: #1e4dd8">
+          <i class="bi bi-shield-check"></i>
+        </div>
+        <h5 class="fw-semibold mt-3">Certificado Halal</h5>
+        <p>Cumplimos estándares internacionales para mercados árabes.</p>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="p-4 border-0 rounded bg-light">
-        <h6 class="fw-bold">⭐ Calidad Premium</h6>
-        <p>De las montañas de Nariño directamente a Dubái.</p>
+
+    <!-- CARD 3 -->
+    <div class="col-md-3">
+      <div class="benefit-card text-center p-4">
+        <div class="benefit-icon" style="background-color: #3b82f6">
+          <i class="bi bi-globe"></i>
+        </div>
+        <h5 class="fw-semibold mt-3">Exportación Directa</h5>
+        <p>Desde Nariño–Colombia directo a Dubái y EAU.</p>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="col-md-3">
+      <div class="benefit-card text-center p-4">
+        <div class="benefit-icon" style="background-color: #a855f7">
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <h5 class="fw-semibold mt-3">Calidad Premium</h5>
+        <p>Selección rigurosa y control de calidad en toda la cadena.</p>
       </div>
     </div>
   </div>

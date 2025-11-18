@@ -1,19 +1,31 @@
+<app-navbar></app-navbar>
 <div class="sales-container">
   <!-- SIDEBAR -->
   <app-admin-sidebar></app-admin-sidebar>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="content">
-    <!-- TOPBAR -->
-    <div class="topbar">
-      <button class="btn btn-light btn-sm" routerLink="/home">Ver sitio público</button>
-      <button class="btn btn-dark btn-sm" routerLink="/admin/login">Cerrar sesión</button>
-    </div>
-
     <!-- TITULO -->
+    <!-- TITULO + BOTONES -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h3 class="fw-bold">Gestión de Ventas</h3>
+        <p class="text-muted mb-0">Registro y análisis de ventas por cliente y canal</p>
+      </div>
 
-    <h3 class="mb-1 fw-bold">Gestión de Ventas</h3>
-    <p class="text-muted mb-4">Registro y análisis de ventas por cliente y canal</p>
+      <div class="topbar">
+        <button class="btn btn-dark btn-sm" (click)="openRegisterSale()">
+          <i class="bi bi-plus-lg"></i> Nueva Venta
+        </button>
+        <app-register-sale
+          *ngIf="showRegisterSale"
+          (close)="closeRegisterSale()"
+        ></app-register-sale>
+        <button class="btn btn-outline-dark btn-sm">
+          <i class="bi bi-download"></i> Exportar Reporte
+        </button>
+      </div>
+    </div>
 
     <!-- TARJETAS SUPERIORES -->
     <div class="row mt-4 g-3">
@@ -55,7 +67,7 @@
       <h6>Comparación Mensual B2C vs B2B</h6>
       <p class="text-muted small">Últimos 5 meses</p>
 
-      <div class="chart-placeholder">(Aquí va tu gráfica real con Chart.js u otro)</div>
+      <canvas id="ventasChart" height="120"></canvas>
 
       <div class="legend mt-2">
         <span class="b2b"></span> B2B <span class="b2c ms-3"></span> B2C

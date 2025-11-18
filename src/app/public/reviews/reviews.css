@@ -22,3 +22,121 @@
 .card p {
   margin-bottom: 0.8rem;
 }
+
+/* Caja pequeña con borde azul suave detrás (Opiniones de Clientes) */
+.tag-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tag {
+  background: white;
+  color: #0d4bcf;
+  border: 2px solid #d7e6ff;
+  padding: 6px 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 255, 0.08);
+}
+
+/* TARJETA CUADRICULADA COMO LA IMAGEN */
+.rating-box {
+  background: white;
+  padding: 25px 40px;
+  border-radius: 20px;
+  border: 2px solid #e6efff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ESTRELLAS GRANDES Y BONITAS */
+.stars {
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+/* Título */
+.text-primary {
+  color: #003b9e !important;
+  font-size: 4.5rem;
+  font-weight: 200;
+}
+
+.text-secundary{
+  color: #003b9e !important;
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.text-description{
+  color: #3a3939 !important;
+  font-size: 1rem;
+}
+
+/* COLUMNA IZQUIERDA FIJA */
+.filters-box {
+  position: sticky;
+  top: 100px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 14px;
+  background: white;
+}
+
+/* Botones de filtro */
+.filter-btn {
+  text-align: left;
+  width: 100%;
+  padding: 8px 14px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #000;
+  color: white;
+}
+
+/* TARJETAS DE COMENTARIOS */
+.review-card {
+  border-radius: 14px;
+  background: white;
+}
+
+/* Circulo con inicial */
+.profile-circle {
+  width: 42px;
+  height: 42px;
+  background: #0d6efd;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Scroll de la derecha */
+.reviews-scroll {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+/* Estrellas */
+.stars {
+  font-size: 18px;
+}
+
+.certificacion-card {
+  background: #16418b !important; /* Azul suave */
+  border-radius: 14px;
+}
+
+.certificacion-card h5,
+.certificacion-card p {
+  color: #ffffff !important; /* Texto negro */
+}
+

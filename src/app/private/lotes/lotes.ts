@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AdminSidebar } from '../sidebar/sidebar';
 import { Router } from 'express';
+import { Navbar } from "../navbar/navbar";
+import { RegisterLote } from './register-lote/register-lote';
 
 interface Lote {
   codigo: string;
@@ -17,7 +19,7 @@ interface Lote {
 @Component({
   selector: 'app-lotes',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, AdminSidebar],
+  imports: [CommonModule, RouterModule, FormsModule, AdminSidebar, Navbar, RegisterLote],
   templateUrl: './lotes.html',
   styleUrls: ['./lotes.css']
 })
@@ -41,4 +43,14 @@ export class Lotes {
       l.origen.toLowerCase().includes(t)
     );
   }
+  showRegisterLote = false;
+
+  openRegisterLote() {
+    this.showRegisterLote = true;
+  }
+
+  closeRegisterLote() {
+    this.showRegisterLote = false;  
+  }
+
 }

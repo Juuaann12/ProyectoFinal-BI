@@ -1,0 +1,54 @@
+.navbar {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 14px 24px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    box-shadow: none !important;
+}
+
+/* Marca del sistema */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 20px;
+    color: #3b3bd1 !important;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+/* Contenedor derecho */
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Botón "Ver sitio público" */
+.btn-light {
+    
+    background-color: #f8f9fa !important;
+    border: 1px solid #dedede !important;
+    padding: 6px 14px !important;
+    font-weight: bold;
+    border-radius: 8px !important;
+    color: black !important;
+    transition: 0.2s;
+}
+
+.btn-light:hover {
+    background-color: #ececec !important;
+}
+
+/* Botón "Cerrar sesión" */
+.btn-dark {
+    background-color: #11112b !important;
+    padding: 6px 16px !important;
+    border-radius: 8px !important;
+    color: black;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-dark:hover {
+    opacity: 0.9;
+}

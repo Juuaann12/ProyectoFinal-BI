@@ -3,15 +3,23 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AdminSidebar } from '../sidebar/sidebar';
+import { Navbar } from "../navbar/navbar";
+import { AfterViewInit } from '@angular/core';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
+import { RegisterSale } from './register-sale/register-sale';
+
+
 
 @Component({
   selector: 'app-sales',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, AdminSidebar],
+  imports: [CommonModule, RouterModule, FormsModule, AdminSidebar, Navbar, RegisterSale],
   templateUrl: './sales.html',
   styleUrls: ['./sales.css'],
 })
-export class Sales {
+
+export class Sales implements AfterViewInit {
 
   searchClient = '';
 
@@ -38,7 +46,16 @@ export class Sales {
 //lista filtrada
   filteredVentas = [...this.registroVentas];
 
-  // Método de filtrado
+  showRegisterSale = false;
+
+  openRegisterSale() {
+  this.showRegisterSale = true;
+  }
+
+  closeRegisterSale() {
+  this.showRegisterSale = false;
+  }
+// Método de filtrado
   ngOnChanges() {
     this.applyFilter();
   }
@@ -50,5 +67,35 @@ export class Sales {
       v.cliente.toLowerCase().includes(term)
     );
   }
-  
+  ngAfterViewInit() {
+  const ctx = document.getElementById('ventasChart') as HTMLCanvasElement;
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: this.ventasMensuales.map(v => v.mes),
+      datasets: [
+        {
+          label: 'B2B',
+          data: this.ventasMensuales.map(v => v.b2b),
+          backgroundColor: '#6366f1'
+        },
+        {
+          label: 'B2C',
+          data: this.ventasMensuales.map(v => v.b2c),
+          backgroundColor: '#93c5fd'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
 }

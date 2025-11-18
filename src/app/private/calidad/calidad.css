@@ -1,139 +1,192 @@
 .calidad-container {
   display: flex;
-  background: #f6f9fc;
   min-height: 100vh;
-}
-
-/* TOPBAR */
-.topbar {
-  display: flex;
+  background-color: #f8f9fa;
   justify-content: flex-end;
-  gap: 10px;
-  margin-bottom: 20px;
 }
 
-/* MAIN CONTENT */
+/* Contenido principal */
 .content {
   flex: 1;
   padding: 30px;
+  justify-content: flex-end;
 }
 
+/* Estilos para las tarjetas */
 .dash-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  height: 100%;
+}
+
+.dash-card h6 {
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.dash-card h2 {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .trend-up {
-  color: #1ebe67; 
-  font-size: 0.9rem;
+  color: #4CAF50;
+  font-weight: 500;
+  margin: 0;
+  font-size: 14px;
 }
 
-/* Reseñas recientes */
+/* Estilos para gráficas */
+.graph-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 100%;
+}
+
+.graph-card h6 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.chart-container {
+  position: relative;
+  height: 250px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* Estilos para las tablas y reseñas */
+.table-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.table-card h6 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
 .review-item {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
   padding: 15px 0;
-  border-bottom: 1px solid #eef0f5;
+  border-bottom: 1px solid #eee;
+  gap: 15px;
 }
 
-.review-item .avatar {
-  width: 45px;
-  height: 45px;
-  background: #dbeafe;
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  background: #2196F3;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  color: #1e3a8a;
+  font-weight: bold;
+  flex-shrink: 0;
 }
 
-.review-item .content-area {
+.content-area {
   flex: 1;
 }
 
-.review-item .stars {
-  white-space: nowrap;
-  color: #ffd700;
-  font-size: 1.1rem;
+.content-area strong {
+  color: #333;
 }
 
-/* Tags de severidad */
+.stars {
+  color: #FFC107;
+  flex-shrink: 0;
+}
+
+/* Estilos para la tabla */
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  font-weight: 600;
+  color: #495057;
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
 .tag.good {
-  background: #e0f8e9;
-  color: #15803d;
+  background: #E8F5E8;
+  color: #4CAF50;
 }
 
 .tag.mid {
-  background: #fff7cd;
-  color: #b45309;
+  background: #FFF3E0;
+  color: #FF9800;
 }
 
 .tag.bad {
-  background: #ffe4e6;
-  color: #b91c1c;
+  background: #FFEBEE;
+  color: #F44336;
 }
 
-/* Tarjetas de resumen al final */
+/* Resumen cards */
 .resume-card {
-  padding: 18px;
-  border-radius: 10px;
-  font-weight: 600;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 500;
   text-align: center;
 }
 
 .resume-card.good {
-  background: #dbfcef;
-  color: #15803d;
+  background: #E8F5E8;
+  color: #4CAF50;
 }
 
 .resume-card.mid {
-  background: #fff9db;
-  color: #b45309;
+  background: #FFF3E0;
+  color: #FF9800;
 }
 
 .resume-card.bad {
-  background: #ffe4e6;
-  color: #b91c1c;
+  background: #FFEBEE;
+  color: #F44336;
 }
 
-/* Gráficas  */
-.chart-placeholder {
-  background: #eef3ff;
-  height: 260px;
-  border-radius: 10px;
-}
-
-/* Tabla y tarjetas */
-.table-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.graph-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-/* Inputs */
-.search {
-  max-width: 350px;
-}
-
-/* Iconos */
-.icon-btn {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.icon-btn:hover {
-  color: #3b82f6;
+/* Responsive */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  app-admin-sidebar {
+    transform: translateX(-100%);
+  }
+  
+  app-navbar {
+    left: 0;
+  }
 }

@@ -1,110 +1,129 @@
-/* Fondo con degradado sutil */
+/* Fondo del login (muy suave, igual al mockup) */
 .admin-bg {
-  background: linear-gradient(120deg, #eef6ff 0%, #f6f2ff 100%);
+  background: linear-gradient(180deg, #eef3ff 0%, #faf8ff 100%);
+  min-height: 100vh;
 }
 
+/* Contenedor centrado */
 .admin-container {
   width: 100%;
-  max-width: 540px;
-  padding: 28px;
-  box-sizing: border-box;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
 }
 
-/* Back link */
+/* Enlace superior */
 .back-link {
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 .back-link a {
-  color: #5a6475;
+  color: black;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-weight: bold;
   text-decoration: none;
-  font-size: 0.9rem;
 }
 
-/* Tarjeta principal */
+/* CARD PRINCIPAL */
 .login-card {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 28px;
-  box-shadow: 0 10px 30px rgba(20, 40, 80, 0.06);
+  border-radius: 20px;
+  padding: 45px 38px 32px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.08);
   text-align: center;
+  position: relative;
 }
 
-/* Icono circular */
-.login-card .icon-circle {
-  width: 70px;
-  height: 70px;
+/* ÍCONO REDONDO */
+.icon-circle {
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
-  margin: -56px auto 12px;
+  background: #5a46fa;
+  margin: -65px auto 15px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: #4b6ef6;
-  box-shadow: 0 8px 18px rgba(75, 110, 246, 0.25);
+  align-items: center;
+  box-shadow: 0px 6px 16px rgba(90, 70, 250, 0.35);
 }
 
-.login-card .icon-circle svg {
-  display: block;
-}
-
-/* Títulos */
-.login-card .card-title {
-  margin-top: 6px;
-  margin-bottom: 6px;
+/* TÍTULO PRINCIPAL */
+.card-title {
+  font-size: 1.35rem;
   font-weight: 700;
-  color: #0f1724;
+  color: #0f172a;
+  margin-bottom: 8px;
 }
 
-.login-card .card-sub {
-  margin-bottom: 14px;
+/* SUBTÍTULO */
+.card-sub {
+  font-size: 0.98rem;
   color: #6b7280;
-  font-size: 0.95rem;
+  margin-bottom: 22px;
 }
 
-/* Formulario */
-.login-card .login-form {
-  margin-top: 6px;
-}
-
-.login-card .login-form .form-label {
-  display: block;
-  text-align: left;
+/* FORMULARIO */
+.login-form .form-label {
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #555d6b;
+  color: #374151;
+  margin-bottom: 6px;
 }
 
-.login-card .login-form .form-control {
-  border-radius: 8px;
-  height: 44px;
-  box-shadow: none;
-  border: 1px solid rgba(15, 23, 36, 0.08);
+/* INPUTS estilo Figma */
+.login-form .form-control {
+  height: 45px;
+  border-radius: 12px !important;
+  background: #f4f5f7;
+  border: 1px solid #e4e6eb;
+  font-size: 0.95rem;
+  padding-left: 14px;
+  transition: all 0.15s ease;
 }
 
-.login-card .login-form .btn {
-  background: #070620;
-  border: none;
-  color: #fff;
+.login-form .form-control:focus {
+  background: #ffffff;
+  border-color: #5a46fa;
+  box-shadow: 0 0 0 3px rgba(90, 70, 250, 0.18);
+}
+
+/* BOTÓN NEGRO */
+.login-form .btn {
+  height: 48px;
+  border-radius: 10px;
   font-weight: 700;
-  padding: 10px 12px;
-  border-radius: 8px;
+  font-size: 1rem;
+  background: #0c0b1c;
+  border: none !important;
+  margin-top: 8px;
 }
 
-.login-card .login-form .alert {
-  border-radius: 8px;
-  padding: 8px 10px;
+.login-form .btn:hover {
+  background: #16152e;
 }
 
-/* Ajustes responsive */
+/* TEXTO DE DEMO */
+.demo-text {
+  font-size: 0.82rem;
+  margin-top: 18px;
+  color: #6b6d70;
+}
+
+/* ALERTA */
+.login-form .alert {
+  margin-top: 14px;
+  border-radius: 10px;
+}
+
+/* Responsive */
 @media (max-width: 576px) {
-  .admin-container {
-    padding: 16px;
-  }
   .login-card {
-    padding: 20px;
+    padding: 38px 24px 28px;
   }
-  .login-card .icon-circle {
-    width: 60px;
-    height: 60px;
-    margin-top: -48px;
+  .icon-circle {
+    width: 68px;
+    height: 68px;
+    margin-top: -55px;
   }
 }

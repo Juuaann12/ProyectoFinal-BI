@@ -101,3 +101,12 @@
 .icon-btn:hover {
   color: #3a57e8;
 }
+.topbar .btn {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+#ventasChart {
+  margin-top: 10px;
+}

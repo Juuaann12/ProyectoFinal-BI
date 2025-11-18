@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { AdminSidebar } from '../sidebar/sidebar';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Navbar } from "../navbar/navbar";
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-calidad',
   standalone: true,
-  imports: [CommonModule, RouterModule, AdminSidebar, FormsModule],
+  imports: [CommonModule, RouterModule, AdminSidebar, FormsModule, Navbar, BaseChartDirective],
   templateUrl: './calidad.html',
   styleUrls: ['./calidad.css']
 })
@@ -18,6 +20,75 @@ export class Calidad {
   totalResenas = 313;
   satisfaccion = 89.5;
   problemasResueltos = 2;
+
+    // --- Datos para gráficas ---
+  
+  // Gráfica de Tendencia de Calificaciones
+  public tendenciaCalificacionesData = {
+    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct'],
+    datasets: [
+      {
+        label: 'Calificación Promedio',
+        data: [4.5, 4.6, 4.4, 4.7, 4.6, 4.8, 4.5, 4.7, 4.6, 4.7],
+        borderColor: '#4CAF50',
+        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+        tension: 0.4,
+        fill: true
+      }
+    ]
+  };
+
+  public tendenciaCalificacionesOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: false,
+        min: 4.0,
+        max: 5.0,
+        ticks: {
+          stepSize: 0.2
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false
+      }
+    }
+  };
+
+  // Gráfica de Volumen de Reseñas
+  public volumenResenasData = {
+    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct'],
+    datasets: [
+      {
+        label: 'Reseñas por Mes',
+        data: [25, 28, 32, 30, 35, 40, 38, 42, 45, 50],
+        backgroundColor: '#2196F3',
+        borderColor: '#1976D2',
+        borderWidth: 1
+      }
+    ]
+  };
+
+  public volumenResenasOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 10
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false
+      }
+    }
+  };
 
   // --- Reseñas recientes ---
   resenas = [

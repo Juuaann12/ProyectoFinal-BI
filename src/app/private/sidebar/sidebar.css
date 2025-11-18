@@ -30,3 +30,23 @@
   background: #eef1ff;
   color: #3a57e8;
 }
+
+.sidebar ul li i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 15px;
+  color: #444;
+}
+
+.sidebar ul li.active,
+.sidebar ul li:hover {
+  background: #eef1ff;
+  color: #6c63ff;
+}
+

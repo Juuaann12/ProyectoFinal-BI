@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import Chart from 'chart.js/auto';
 import { AdminSidebar } from '../sidebar/sidebar';
+import { Navbar } from '../navbar/navbar';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule, AdminSidebar],
+  imports: [CommonModule, RouterModule, AdminSidebar, Navbar],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css']
 })

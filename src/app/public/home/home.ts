@@ -13,5 +13,10 @@ import { Footer } from '../footer/footer';
 })
 export class Home {
   constructor(public data: PublicData) {}
+  
+  scrollToProducts() {
+    const section = document.getElementById("products");
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 

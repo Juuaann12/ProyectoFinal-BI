@@ -1,15 +1,10 @@
+<app-navbar></app-navbar>
 <div class="calidad-container">
   <!-- SIDEBAR -->
   <app-admin-sidebar></app-admin-sidebar>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="content">
-    <!-- TOPBAR -->
-    <div class="topbar">
-      <button class="btn btn-light btn-sm" routerLink="/home">Ver sitio público</button>
-      <button class="btn btn-dark btn-sm" routerLink="/admin/login">Cerrar sesión</button>
-    </div>
-
     <!-- TÍTULO -->
     <h3 class="fw-bold mb-1">Indicadores de Calidad</h3>
     <p class="text-muted mb-4">Seguimiento de reseñas y problemas de calidad</p>
@@ -55,7 +50,15 @@
         <div class="graph-card">
           <h6>Tendencia de Calificaciones</h6>
           <p class="text-muted small">Evolución de la calificación promedio mensual</p>
-          <div class="chart-placeholder">(Gráfica aquí)</div>
+          <div class="chart-container">
+            <canvas
+              baseChart
+              [data]="tendenciaCalificacionesData"
+              [options]="tendenciaCalificacionesOptions"
+              type="line"
+            >
+            </canvas>
+          </div>
         </div>
       </div>
 
@@ -63,7 +66,15 @@
         <div class="graph-card">
           <h6>Volumen de Reseñas</h6>
           <p class="text-muted small">Cantidad de reseñas por mes</p>
-          <div class="chart-placeholder">(Gráfica aquí)</div>
+          <div class="chart-container">
+            <canvas
+              baseChart
+              [data]="volumenResenasData"
+              [options]="volumenResenasOptions"
+              type="bar"
+            >
+            </canvas>
+          </div>
         </div>
       </div>
     </div>
