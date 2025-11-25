@@ -24,6 +24,12 @@ interface Lote {
   styleUrls: ['./lotes.css']
 })
 export class Lotes {
+
+  constructor() {
+  this.recalcularTotales();
+}
+
+
   searchText = '';
 
   lotes: Lote[] = [
@@ -44,6 +50,43 @@ export class Lotes {
     );
   }
   showRegisterLote = false;
+
+addLote(nuevoLote: Lote) {
+  this.lotes.push(nuevoLote);
+  this.recalcularTotales();
+}
+
+
+
+  recalcularTotales() {
+  const activos = this.lotes.filter(l => l.estado === 'Activo').length;
+  const cantidadTotal = this.lotes
+    .map(l => parseInt(l.cantidad))
+    .reduce((a, b) => a + b, 0);
+
+  const excelente = this.lotes.filter(l => l.calidad === 'Excelente').length;
+  const buena = this.lotes.filter(l => l.calidad === 'Buena').length;
+  const regular = this.lotes.filter(l => l.calidad === 'Regular').length;
+
+  this.stats = {
+    activos,
+    cantidadTotal,
+    excelente,
+    buena,
+    regular,
+    tasaCalidad: Math.round((excelente / this.lotes.length) * 100)
+  };
+}
+stats = {
+  activos: 0,
+  cantidadTotal: 0,
+  excelente: 0,
+  buena: 0,
+  regular: 0,
+  tasaCalidad: 0
+};
+
+
 
   openRegisterLote() {
     this.showRegisterLote = true;

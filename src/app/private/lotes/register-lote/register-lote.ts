@@ -11,10 +11,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterLote {
 
-  // Emitir evento para cerrar el modal
   @Output() close = new EventEmitter<void>();
+  @Output() save = new EventEmitter<any>();   // ← NUEVO
 
-  // Datos del formulario
   loteData = {
     origen: '',
     fechaCosecha: '',
@@ -28,25 +27,31 @@ export class RegisterLote {
     certificaciones: ''
   };
 
-  /** BOTÓN X — Cerrar modal **/
   cerrar() {
     this.close.emit();
   }
 
-  /** BOTÓN GUARDAR — Registrar lote **/
   registrarLote() {
-    // Validar campos requeridos
     if (!this.loteData.origen || !this.loteData.fechaCosecha || !this.loteData.cantidad || !this.loteData.fechaExportacion) {
       alert('Por favor complete todos los campos requeridos (*)');
       return;
     }
 
-    console.log('Lote registrado:', this.loteData);
+    // Convertir al formato de la tabla principal
+    const nuevoLote = {
+      codigo: 'LOTE-' + Date.now(),
+      origen: this.loteData.origen,
+      fecha: this.loteData.fechaCosecha,
+      cantidad: this.loteData.cantidad + ' kg',
+      calidad: this.loteData.calidad as any,
+      estado: this.loteData.estado as any
+    };
 
-    // Mostrar confirmación
+    // ← Enviar lote al padre
+    this.save.emit(nuevoLote);
+
     alert('Lote registrado correctamente ✔️');
 
-    // Cerrar al guardar
     this.close.emit();
   }
 }

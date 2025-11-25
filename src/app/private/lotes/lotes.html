@@ -26,28 +26,28 @@
       <div class="col-md-3">
         <div class="dash-card">
           <h6>Lotes Activos</h6>
-          <h2>3</h2>
+          <h2>{{ stats.activos }}</h2>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="dash-card">
           <h6>Cantidad Total</h6>
-          <h2>7450 kg</h2>
+          <h2>{{ stats.cantidadTotal }} kg</h2>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="dash-card">
           <h6>Calidad Excelente</h6>
-          <h2>5/8</h2>
+          <h2>{{ stats.excelente }}/{{ lotes.length }}</h2>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="dash-card">
           <h6>Tasa de Calidad</h6>
-          <h2>63%</h2>
+          <h2>{{ stats.tasaCalidad }}%</h2>
         </div>
       </div>
     </div>
@@ -118,15 +118,17 @@
       <!-- RESUMEN -->
       <div class="row text-center g-3 mt-4">
         <div class="col-md-4">
-          <div class="resume-card good">5 Lotes con calidad Excelente</div>
+          <div class="resume-card good">{{ stats.excelente }} Lotes con calidad Excelente</div>
         </div>
         <div class="col-md-4">
-          <div class="resume-card mid">2 Lotes con calidad Buena</div>
+          <div class="resume-card mid">{{ stats.buena }} Lotes con calidad Buena</div>
         </div>
         <div class="col-md-4">
-          <div class="resume-card bad">1 Lote con calidad Regular</div>
+          <div class="resume-card bad">{{ stats.regular }} Lotes con calidad Regular</div>
         </div>
       </div>
     </div>
   </main>
 </div>
+<app-register-lote *ngIf="showRegisterLote" (close)="closeRegisterLote()" (save)="addLote($event)">
+</app-register-lote>

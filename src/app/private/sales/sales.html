@@ -5,7 +5,6 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="content">
-    <!-- TITULO -->
     <!-- TITULO + BOTONES -->
     <div class="d-flex justify-content-between align-items-center mb-3">
       <div>
@@ -20,6 +19,7 @@
         <app-register-sale
           *ngIf="showRegisterSale"
           (close)="closeRegisterSale()"
+          (saleRegistered)="onSaleRegistered($event)"
         ></app-register-sale>
         <button class="btn btn-outline-dark btn-sm">
           <i class="bi bi-download"></i> Exportar Reporte
@@ -32,31 +32,43 @@
       <div class="col-md-3">
         <div class="dash-card">
           <h6>Total del Mes</h6>
-          <h2>$72,700</h2>
+          <h2>${{ metricas.totalMes | number }}</h2>
+
           <p class="trend-up">▲ +14.5%</p>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="dash-card">
-          <h6>Ventas B2C</h6>
-          <h2>$5,100</h2>
-          <p class="sub">7.0% del total</p>
+          <h2>${{ metricas.totalB2C | number }}</h2>
+          <p class="sub">
+            {{
+              metricas.totalMes > 0
+                ? (metricas.totalB2C / metricas.totalMes) * 100
+                : (0 | number : '1.1-1')
+            }}% del total
+          </p>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="dash-card">
-          <h6>Ventas B2B</h6>
-          <h2>$67,600</h2>
-          <p class="sub">93.0% del total</p>
+          <h2>${{ metricas.totalB2B | number }}</h2>
+          <p class="sub">
+            {{
+              metricas.totalMes > 0
+                ? (metricas.totalB2B / metricas.totalMes) * 100
+                : (0 | number : '1.1-1')
+            }}% del total
+          </p>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="dash-card">
           <h6>Kilogramos Vendidos</h6>
-          <h2>929 kg</h2>
+          <h2>{{ metricas.totalKg }} kg</h2>
+
           <p class="trend-up">▲ +12.8%</p>
         </div>
       </div>
@@ -124,34 +136,35 @@
         </tbody>
       </table>
 
-      <section class="container py-5">
+      <!-- MÉTRICAS INFERIORES -->
+      <div class="container py-5">
         <div class="row text-center g-4">
           <div class="col-md-3">
             <div class="p-4 border-0 rounded bg-white">
               <h6 class="fw-bold">Transacciones</h6>
-              <p>12</p>
+              <p>{{ metricas.transacciones }}</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="p-4 border-0 rounded bg-white">
               <h6 class="fw-bold">Total kg</h6>
-              <p>929 kg</p>
+              <p>{{ metricas.totalKg }} kg</p>
             </div>
           </div>
           <div class="col-md-3">
             <div class="p-4 border-0 rounded bg-white">
               <h6 class="fw-bold">Promedio/venta</h6>
-              <p>$6058</p>
+              <p>${{ metricas.promedioVenta | number }}</p>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="p-4 border-1 rounded bg-white">
+            <div class="p-4 border-0 rounded bg-white">
               <h6 class="fw-bold">Total</h6>
-              <p>$72.700</p>
+              <p>${{ metricas.totalMes | number }}</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   </main>
 </div>

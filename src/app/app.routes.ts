@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
+import { DashboardBIComponent } from './private/dashboard-bi/dashboard-bi';
 
 export const appRoutes: Routes = [
+
+  { path: 'dashboard-bi', component: DashboardBIComponent },
 
   {
     path: '',
