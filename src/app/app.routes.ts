@@ -1,9 +1,6 @@
 import { Routes } from '@angular/router';
-import { DashboardBIComponent } from './private/dashboard-bi/dashboard-bi';
 
 export const appRoutes: Routes = [
-
-  { path: 'dashboard-bi', component: DashboardBIComponent },
 
   {
     path: '',
@@ -53,7 +50,17 @@ export const appRoutes: Routes = [
   path: 'admin/calidad',
   loadComponent: () =>
     import('./private/calidad/calidad').then(m => m.Calidad)
-}
+},
+{
+  path: 'admin/dashboard-bi',
+  loadComponent: () =>
+    import('./private/dashboard-tableau/dashboard-tableau').then(m => m.TableauDashboard)
+},
 
+{
+  path: 'admin/gestionventas-bi',
+  loadComponent: () =>
+    import('./private/gestionventas-tableau/gestionventas-tableau').then(m => m.TableauGestionventas)
+}
 
 ];
